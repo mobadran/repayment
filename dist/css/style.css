@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: hsl(200, 24%, 40%);
+}
+
+.offscreen {
+  position: absolute;
+  clip-path: inset(100%);
+  height: 1px;
+  /* For accessibility */
+  width: 1px;
+  /* For accessibility */
+  overflow: hidden;
+}
+
+header {
+  margin: 20px;
+}
+header h1 {
+  font-size: 20px;
+  color: hsl(202, 55%, 16%);
+}
+header button {
+  background: none;
+  border: none;
+  color: hsl(200, 24%, 40%);
+  text-decoration: underline;
+}
+
+main {
+  margin: 20px;
+}
+main form fieldset {
+  border: none;
+}
+main form fieldset input {
+  width: 100%;
+  border: 1px solid hsl(200, 26%, 54%);
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+footer {
+  margin: 20px;
+}
