@@ -6,51 +6,254 @@
 
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
   color: hsl(200, 24%, 40%);
 }
 
 .offscreen {
-  position: absolute;
   clip-path: inset(100%);
   height: 1px;
   /* For accessibility */
   width: 1px;
   /* For accessibility */
-  overflow: hidden;
+  overflow: 300;
+}
+
+.req {
+  visibility: hidden;
+  color: hsl(4, 69%, 50%);
+  font-size: 14px;
+  margin: 5px 0 15px 0;
 }
 
 header {
-  margin: 20px;
+  margin: 25px 20px 0 20px;
 }
 header h1 {
-  font-size: 20px;
+  font-size: 24px;
   color: hsl(202, 55%, 16%);
 }
-header button {
+
+main .form-container {
+  padding: 0 20px;
+}
+main .form-container form fieldset {
+  border: none;
+}
+main .form-container form fieldset .clear {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 25px;
   background: none;
   border: none;
+  font-size: 16px;
   color: hsl(200, 24%, 40%);
   text-decoration: underline;
 }
-
-main {
-  margin: 20px;
+main .form-container form fieldset .clear:hover {
+  cursor: pointer;
 }
-main form fieldset {
-  border: none;
+main .form-container form fieldset .input-container {
+  position: relative;
+  --beforeBGColor: hsl(202, 86%, 94%);
+  --contentColor: hsl(200, 24%, 40%);
 }
-main form fieldset input {
+main .form-container form fieldset .input-container input {
   width: 100%;
+  height: 50px;
   border: 1px solid hsl(200, 26%, 54%);
   border-radius: 5px;
   padding: 10px;
   font-weight: 700;
+  font-size: 18px;
   letter-spacing: 0.3px;
+  margin: 10px 0 0px 0;
+  outline: none;
+}
+main .form-container form fieldset .input-container input:focus {
+  border-color: hsl(61, 70%, 52%);
+}
+main .form-container form fieldset .input-container input:hover {
+  cursor: pointer;
+  border-color: hsl(202, 55%, 16%);
+}
+main .form-container form fieldset .input-container:has(input:focus)::before {
+  background-color: hsl(61, 70%, 52%);
+}
+main .form-container form fieldset .input-container::before {
+  position: absolute;
+  top: 11px;
+  left: 1px;
+  width: 48px;
+  height: 48px;
+  background-color: var(--beforeBGColor);
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--contentColor);
+}
+main .form-container form fieldset .input-container.amount::before {
+  content: "$";
+}
+main .form-container form fieldset .input-container.amount input {
+  padding-left: 58px;
+}
+main .form-container form fieldset .input-container.term::before {
+  right: 1px;
+  left: auto;
+  border-radius: 0 5px 5px 0;
+  width: 70px;
+  content: "years";
+}
+main .form-container form fieldset .input-container.term input {
+  padding-right: 80px;
+}
+main .form-container form fieldset .input-container.rate::before {
+  right: 1px;
+  left: auto;
+  border-radius: 0 5px 5px 0;
+  content: "%";
+}
+main .form-container form fieldset .input-container.rate input {
+  padding-right: 58px;
+}
+main .form-container form fieldset .mortgage-type {
+  display: block;
+}
+main .form-container form fieldset .mortgage-type-btn {
+  position: relative;
+  display: flex;
+  margin: 10px 0;
+  border: 1px solid hsl(200, 26%, 54%);
+  border-radius: 5px;
+  padding: 10px 20px 10px 0;
+  gap: 15px;
+  font-weight: 700;
+}
+main .form-container form fieldset .mortgage-type-btn input[type=radio]:focus {
+  outline: none;
+}
+main .form-container form fieldset .mortgage-type-btn:has(> input[type=radio]:focus), main .form-container form fieldset .mortgage-type-btn:has(> input[type=radio]:hover) {
+  border-color: hsl(61, 70%, 52%);
+}
+main .form-container form fieldset .mortgage-type-btn:has(> input:checked) {
+  background-color: #fdfdf2;
+  border-color: hsl(61, 70%, 52%);
+}
+main .form-container form fieldset .mortgage-type-btn:hover,
+main .form-container form fieldset .mortgage-type-btn label:hover,
+main .form-container form fieldset .mortgage-type-btn .radio:hover {
+  cursor: pointer;
+}
+main .form-container form fieldset .mortgage-type-btn input {
+  appearance: none;
+}
+main .form-container form fieldset .mortgage-type-btn .radio {
+  width: 24px;
+  height: 24px;
+  border: 2px solid hsl(200, 24%, 40%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .form-container form fieldset .mortgage-type-btn input:checked + span {
+  border-color: hsl(61, 70%, 52%);
+}
+main .form-container form fieldset .mortgage-type-btn input:checked + span::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: hsl(61, 70%, 52%);
+  border-radius: 50%;
+}
+main .form-container form fieldset button.calculate {
+  display: flex;
+  background-color: hsl(61, 70%, 52%);
+  border: 0 solid hsl(61, 70%, 52%);
+  border-radius: 40px;
+  width: 100%;
+  padding: 15px;
+  color: hsl(202, 55%, 16%);
+  font-size: 20px;
+  gap: 10px;
+  justify-content: center;
+}
+main .form-container form fieldset button.calculate:hover, main .form-container form fieldset button.calculate:focus {
+  cursor: pointer;
+  background-color: #e4e670;
+  outline: none;
+}
+main .results-container {
+  margin-top: 20px;
+  padding: 20px;
+  width: 100%;
+  background-color: hsl(202, 55%, 16%);
+}
+main .results-container .empty-results img {
+  display: block;
+  margin-inline: auto;
+}
+main .results-container .empty-results h2 {
+  color: hsl(0, 0%, 100%);
+  text-align: center;
+  margin: 5px 0 15px 0;
+}
+main .results-container .empty-results p {
+  color: hsl(200, 26%, 54%);
+  text-align: center;
+}
+main .results-container .completed-results {
+  display: none;
+}
+main .results-container .completed-results h2 {
+  font-size: 22px;
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 10px;
+}
+main .results-container .completed-results p {
+  color: hsl(200, 26%, 54%);
+}
+main .results-container .completed-results .results-box {
+  background-color: hsl(202, 56%, 12%);
+  margin-top: 20px;
+  padding: 20px;
+  border-top: 4px solid hsl(61, 70%, 52%);
+  border-radius: 8px;
+}
+main .results-container .completed-results .results-box .result-label {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+main .results-container .completed-results .results-box #monthly-repayments {
+  color: hsl(61, 70%, 52%);
+  font-size: 40px;
+}
+main .results-container .completed-results .results-box hr {
+  margin: 10px 0;
+}
+main .results-container .completed-results .results-box #total {
+  color: hsl(0, 0%, 100%);
+  font-size: 18px;
 }
 
 footer {
-  margin: 20px;
+  display: flex;
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(200, 24%, 40%);
+  width: 100%;
+  padding: 10px;
+}
+footer a {
+  color: hsl(0, 0%, 100%);
+  text-decoration: none;
+  font-weight: 900;
+}
+footer div {
+  text-align: center;
+  margin-inline: auto;
 }

@@ -26,44 +26,71 @@
     <h1>
       Mortgage Calculator
     </h1>
-    <button>
-      Clear All
-    </button>
   </header>
 
   <main>
-    <article class="form-container">
-      <form>
+    <section class="form-container">
+      <form autocomplete="off">
         <fieldset>
+          <button type="reset" class="clear">
+            Clear All
+          </button>
           <legend class="offscreen">Main Form</legend>
 
           <label for="amount">
             Mortgage Amount
           </label>
-          <input type="text" id="amount">
+          <div class="input-container amount" id="amount-container">
+            <input type="text" id="amount">
+          </div>
+          <p class="req" id="req-amount">This field is required</p>
+
 
           <label for="term">
             Mortgage Term
           </label>
-          <input type="number">
+          <div class="input-container term" id="term-container">
+            <input type="text" id="term">
+          </div>
+          <p class="req" id="req-term">This field is required</p>
+
 
           <label for="rate">
             Interest Rate
           </label>
-          <input type="number">
-          <label for="button">
+          <div class="input-container rate" id="rate-container">
+            <input type="text" id="interest-rate">
+          </div>
+          <p class="req" id="req-interest">This field is required</p>
+
+
+          <label for="button" class="mortgage-type">
             Mortgage Type
           </label>
-          <input type="radio" name="button" id="button"> Repayment
-          <input type="radio" name="button" id="button"> Interest Only
+          <label class="mortgage-type-btn">
+            <input type="radio" name="button" id="repayment-btn">
+            <span class="radio"></span>
+            <label for="repayment-btn">Repayment</label>
+          </label>
 
-          <button>Calculate Repayments</button>
+          <label class="mortgage-type-btn">
+            <input type="radio" name="button" id="interest-btn">
+            <span class="radio"></span>
+            <label for="interest-btn">Interest
+              Only</label>
+          </label>
+          <p class="req" id="req-type">This field is required</p>
+
+
+          <button class="calculate" id="calc-btn"><img
+              src="assets/images/icon-calculator.svg"
+              alt="icon-calculator">Calculate Repayments</button>
         </fieldset>
       </form>
-    </article>
+    </section>
 
     <!-- Empty results start -->
-    <article class="results-container">
+    <section class="results-container">
 
       <div class="empty-results">
         <img src="assets/images/illustration-empty.svg" alt="">
@@ -99,17 +126,18 @@
           <p id="total"></p>
         </div>
       </div>
-    </article>
+    </section>
   </main>
 
   <!-- Completed results end -->
   <footer>
 
     <div class="attribution">
-      Challenge by <a
-        href="https://www.frontendmentor.io?ref=challenge">Frontend
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank">Frontend
         Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
+      Coded by <a href="https://github.com/mobadran"
+        target="_blank">Badraan</a>.
     </div>
   </footer>
   <script src="dist/js/index.js"></script>
