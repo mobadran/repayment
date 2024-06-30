@@ -22,14 +22,14 @@
 </head>
 
 <body>
-  <header>
-    <h1>
-      Mortgage Calculator
-    </h1>
-  </header>
 
   <main>
     <section class="form-container">
+      <section class="header">
+        <h1>
+          Mortgage Calculator
+        </h1>
+      </section>
       <form autocomplete="off">
         <fieldset>
           <button type="reset" class="clear">
@@ -37,31 +37,38 @@
           </button>
           <legend class="offscreen">Main Form</legend>
 
-          <label for="amount">
-            Mortgage Amount
-          </label>
-          <div class="input-container amount" id="amount-container">
-            <input type="text" id="amount">
+          <div class="amount-container">
+            <label for="amount">
+              Mortgage Amount
+            </label>
+            <div class="input-container amount" id="amount-container">
+              <input type="text" id="amount">
+            </div>
+            <p class="req" id="req-amount">This field is required</p>
           </div>
-          <p class="req" id="req-amount">This field is required</p>
+
+          <div class="input-fields">
+            <div class="term-container">
+              <label for="term">
+                Mortgage Term
+              </label>
+              <div class="input-container term" id="term-container">
+                <input type="text" id="term">
+              </div>
+              <p class="req" id="req-term">This field is required</p>
+            </div>
 
 
-          <label for="term">
-            Mortgage Term
-          </label>
-          <div class="input-container term" id="term-container">
-            <input type="text" id="term">
+            <div class="rate-container">
+              <label for="rate">
+                Interest Rate
+              </label>
+              <div class="input-container rate" id="rate-container">
+                <input type="text" id="interest-rate">
+              </div>
+              <p class="req" id="req-interest">This field is required</p>
+            </div>
           </div>
-          <p class="req" id="req-term">This field is required</p>
-
-
-          <label for="rate">
-            Interest Rate
-          </label>
-          <div class="input-container rate" id="rate-container">
-            <input type="text" id="interest-rate">
-          </div>
-          <p class="req" id="req-interest">This field is required</p>
 
 
           <label for="button" class="mortgage-type">
@@ -91,7 +98,6 @@
 
     <!-- Empty results start -->
     <section class="results-container">
-
       <div class="empty-results">
         <img src="assets/images/illustration-empty.svg" alt="">
         <h2>
@@ -126,20 +132,19 @@
           <p id="total"></p>
         </div>
       </div>
+      <section class="footer">
+        <div class="attribution">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge"
+            target="_blank">Frontend
+            Mentor</a>.
+          Coded by <a href="https://github.com/mobadran"
+            target="_blank">Badraan</a>.
+        </div>
+      </section>
     </section>
   </main>
 
   <!-- Completed results end -->
-  <footer>
-
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge"
-        target="_blank">Frontend
-        Mentor</a>.
-      Coded by <a href="https://github.com/mobadran"
-        target="_blank">Badraan</a>.
-    </div>
-  </footer>
   <script src="dist/js/index.js"></script>
 </body>
 

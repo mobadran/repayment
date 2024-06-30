@@ -27,6 +27,7 @@ body {
     font-weight: 500;
     font-style: normal;
     color: $slate-700;
+    background-color: $slate-100;
 }
 
 // Off screen
@@ -49,8 +50,8 @@ body {
 
 
 // Header
-header {
-    margin: 25px 20px 0 20px;
+.header {
+    // margin: 25px 20px 0 20px;
 
     h1 {
         font-size: 24px;
@@ -63,10 +64,12 @@ header {
 
 // Main
 main {
-    // padding: 0 20px;
+    background-color: $white;
+    // padding-top: 5px;
 
     .form-container {
-        padding: 0 20px;
+        padding: 20px;
+        min-width: 30vw;
 
         form {
             fieldset {
@@ -250,7 +253,7 @@ main {
                     border: 0 solid $lime;
                     border-radius: 40px;
                     width: 100%;
-                    padding: 15px;
+                    padding: 15px 5px;
                     color: $slate-900;
                     font-size: 20px;
                     gap: 10px;
@@ -269,7 +272,7 @@ main {
     }
 
     .results-container {
-        margin-top: 20px;
+        // margin-top: 20px;
         padding: 20px;
         width: 100%;
         background-color: $slate-900;
@@ -312,7 +315,7 @@ main {
                 margin-top: 20px;
                 padding: 20px;
                 border-top: 4px solid $lime;
-                border-radius: 8px;
+                border-radius: 8px 8px 0 0;
 
                 .result-label {
                     margin-bottom: 10px;
@@ -341,12 +344,13 @@ main {
 
 
 // Footer
-footer {
+.footer {
     display: flex;
     color: $white;
     background-color: $slate-700;
     width: 100%;
     padding: 10px;
+    border-radius: 0 0 30px 30px;
 
     a {
         color: $white;
@@ -357,5 +361,61 @@ footer {
     div {
         text-align: center;
         margin-inline: auto;
+    }
+}
+
+@media screen and (min-width: 512px) {
+
+    main {
+        margin: 15px;
+        border-radius: 30px;
+
+        .results-container {
+            border-radius: 0 0 30px 30px;
+        }
+    }
+
+    .input-fields {
+        display: flex;
+        gap: 40px;
+
+        div {
+            flex-grow: 1;
+        }
+    }
+
+    #calc-btn {
+        width: 60%;
+    }
+
+    // .footer {
+    //     border-radius: 0 0 30px 30px;
+    // }
+
+}
+
+@media screen and (min-width: 1440px) {
+    main {
+        display: flex;
+        margin: 5% 20%;
+        // padding-bottom: 20px;
+
+
+        .results-container {
+            position: relative;
+            border-radius: 0 30px 30px 130px;
+
+            .completed-results .results-box {
+                border-radius: 8px;
+            }
+
+            .footer {
+                padding: 50px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                border-radius: 0 0 30px 130px;
+            }
+        }
     }
 }
